@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "406938961157",
+    "project_id": "aulago-notifications",
+    "storage_bucket": "aulago-notifications.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406938961157:android:f36df1a723695c382b636c",
+        "android_client_info": {
+          "package_name": "com.unamad.profego"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406938961157-47j5r1al6f5bfpmgnjq9533s7oqv5p4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5RLPRD2rX28GzqN8GsnrEmMJPMfKQdQM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406938961157-47j5r1al6f5bfpmgnjq9533s7oqv5p4e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:406938961157:android:a6b7a5f74a08242a2b636c",
+        "android_client_info": {
+          "package_name": "com.unamad.profego.profegodev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "406938961157-47j5r1al6f5bfpmgnjq9533s7oqv5p4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5RLPRD2rX28GzqN8GsnrEmMJPMfKQdQM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "406938961157-47j5r1al6f5bfpmgnjq9533s7oqv5p4e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "2"
+}

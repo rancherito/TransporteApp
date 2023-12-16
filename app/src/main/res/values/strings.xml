@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AulaGo</string>
+    <string name="StudentUser">Alumnos</string>
+    <string name="TeacherUser">Docentes</string>
+</resources>

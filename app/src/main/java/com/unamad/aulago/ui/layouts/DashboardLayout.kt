@@ -57,7 +57,6 @@ fun DashboardLayout(
     modifier: Modifier = Modifier,
     viewModelStorage: ViewModelStorage = viewModelInstance(),
     contentModifier: Modifier = Modifier,
-    infoStudent: StudentProfileApiModel? = viewModelStorage.generalRepository.sysStudentInfoStream.observeAsState().value,
     content: @Composable (BoxScope.() -> Unit)
 ) {
     val context = LocalContext.current
@@ -81,20 +80,6 @@ fun DashboardLayout(
     val welcomeText = "$welcomeGenre al panel principal"
     BaseLayout(modifier = modifier) {
 
-        if (state.value) {
-            Dialog(
-                onDismissRequest = {
-                    state.value = false
-                },
-                properties = androidx.compose.ui.window.DialogProperties(
-                    usePlatformDefaultWidth = false
-                )
-            ) {
-                StudentProfileCard(infoStudent = infoStudent) {
-                    state.value = false
-                }
-            }
-        }
 
         Column(
             modifier = Modifier
@@ -138,45 +123,6 @@ fun DashboardLayout(
                 content = content
             )
 
-        }
-
-        if (systemData != null) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .align(Alignment.BottomCenter)
-            ) {
-
-                if (!isLoadGlobalData) {
-                    Box(
-                        modifier = Modifier
-                            .background(
-                                color = myColors().card,
-                                shape = RoundedCornerShape(14.dp)
-                            )
-                            .height(26.dp)
-                            .padding(horizontal = 16.dp)
-                            .clickable {
-                                viewModelStorage.loadDependencyDataAsync(context)
-                            },
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = "ACTUALIZAR | ${systemData.termName}",
-                            fontSize = 14.sp,
-                            color = myColors().body,
-                            maxLines = 1
-                        )
-                    }
-
-
-                } else {
-                    Spacer(modifier = Modifier.height(26.dp))
-                }
-
-            }
         }
 
     }

@@ -45,7 +45,6 @@ import com.google.gson.Gson
 import com.unamad.aulago.classes.ResponseData
 import com.unamad.aulago.models.database.IModel
 import com.unamad.aulago.ui.theme.myColors
-import com.unamad.aulago.ui.views.teacher.vecToBitmap
 import java.text.Normalizer
 import java.time.Instant
 import java.time.LocalDateTime
@@ -573,46 +572,6 @@ fun <T : Any> dynamicFilter(
     return filteredLists.filterNotNull()
 }
 
-
-fun colorToColorMatrix(color: Color): ColorMatrix {
-    val red = color.red
-    val green = color.green
-    val blue = color.blue
-    val alpha = color.alpha
-    return ColorMatrix(
-        floatArrayOf(
-            red, 0f, 0f, 0f, 0f,  // Red
-            0f, green, 0f, 0f, 0f,  // Green
-            0f, 0f, blue, 0f, 0f,  // Blue
-            0f, 0f, 0f, alpha, 0f   // Alpha
-        )
-    )
-}
-
-
-@Composable
-fun bitmapFilter(
-    @DrawableRes id: Int,
-    color: Color = MaterialTheme.colorScheme.primary
-): ImageBitmap {
-    val res = vecToBitmap(id)
-    val imageBitmap = res.image
-    val matrix = colorToColorMatrix(color)
-
-    val androidBitmap = imageBitmap.asAndroidBitmap()
-    val width = androidBitmap.width
-    val height = androidBitmap.height
-    val destBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-    val canvas = Canvas(destBitmap)
-    val paint = Paint()
-    val grayMatrix = ColorMatrix()
-    grayMatrix.setSaturation(0f)
-    grayMatrix.postConcat(matrix)
-    paint.colorFilter = ColorMatrixColorFilter(grayMatrix)
-    canvas.drawBitmap(androidBitmap, 0f, 0f, paint)
-
-    return destBitmap.asImageBitmap()
-}
 
 fun String.removeAccents(): String {
     val nfdNormalizedString = Normalizer.normalize(this, Normalizer.Form.NFD)

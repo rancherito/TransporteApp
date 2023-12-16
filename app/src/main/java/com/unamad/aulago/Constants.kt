@@ -4,7 +4,7 @@ import androidx.compose.ui.graphics.Color
 import com.unamad.aulago.emums.ServerAddressType
 
 object NavigationApp {
-    object Teacher {
+    object Administrator {
         const val CALENDAR_ASSISTANCE = "TeacherCalendarAssistance"
         const val SECTION_STUDENTS = "TeacherStudent"
         const val ACADEMIC_CHARGE = "TeacherAcademicCharge"
@@ -16,17 +16,10 @@ object NavigationApp {
         const val SECTION = "TeacherCourse"
     }
 
-    object Student {
+    object Conductor {
         const val JUSTIFICATIONS_ABSENCES = "StudentJustificationsAbsences"
-        const val ASSISTANCE = "StudentAssistance"
-        const val DEBTS = "StudentDebts"
-        const val ACTIVITIES = "StudentActivities"
         const val DASHBOARD = "StudentDashboard"
-        const val SCHEDULE = "StudentSchedule"
-        const val TEACHERS = "StudentTeachers"
         const val COMPANIONS = "StudentCompanions"
-        const val CLASSROOM = "StudentClassRoom"
-        const val REPRESENTATIVE_MANAGEMENT = "StudentRepresentativeManagement"
     }
 
     object General {
@@ -37,13 +30,9 @@ object NavigationApp {
 
 class Roles {
     companion object {
-        const val Student = "Alumnos"
-        const val Teacher = "Docentes"
+        const val Student = "USER"
+        const val Teacher = "ADMIN"
     }
-}
-enum class SystemKeys(name: String) {
-    STUDENT_INFO("student_info"),
-    TEACHER_INFO("teacher_info")
 }
 data class ColorSchemeCustom(
     //Status color

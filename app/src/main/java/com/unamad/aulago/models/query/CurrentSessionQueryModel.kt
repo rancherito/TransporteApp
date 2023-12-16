@@ -4,7 +4,6 @@ data class CurrentSessionQueryModel(
     val token: String,
     val userId: String,
     val role: String,
-    val termName: String? = null,
     val tokenVerify: Boolean,
     val name: String,
     val sex: Int

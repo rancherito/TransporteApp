@@ -54,15 +54,6 @@ fun SpLashView(
                 color = myColors().textDark,
                 fontWeight = FontWeight.Bold
             )
-            /*Spacer(modifier = Modifier.padding(8.dp))
-            if (!internet){
-                Text(
-                    text = "No hay conexión a internet",
-                    fontSize = 12.sp,
-                    color = myColors().textDark,
-                    fontWeight = FontWeight.Bold
-                )
-            }*/
 
         }
     }

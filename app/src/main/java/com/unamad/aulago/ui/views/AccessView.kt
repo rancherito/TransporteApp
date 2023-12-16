@@ -58,26 +58,17 @@ import kotlinx.coroutines.withContext
 
 @Composable
 fun AccessView(viewModelStorage: ViewModelStorage = viewModelInstance()) {
-    val activeTerm = viewModelStorage.generalRepository.activeTermStream.observeAsState()
-    //TODO: Permitir el acceso aun sin perido semestral activo
+
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-        Crossfade(targetState = activeTerm.value != null, label = "") { role ->
-
-            when (role) {
-                true -> AccessViewUi(activeTerm.value!!)
-                else -> SpLashView()
-            }
-        }
+         AccessViewUi()
     }
-
 }
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun AccessViewUi(
-    term: TermModel,
     viewModelStorage: ViewModelStorage = viewModelInstance()
 ) {
     val coroutineScope = rememberCoroutineScope()
@@ -98,7 +89,6 @@ fun AccessViewUi(
         mutableStateOf(false)
 
     }
-    viewModelStorage.isContrast.postValue(true)
     val isViewPassword = remember {
         mutableStateOf(false)
     }
@@ -146,10 +136,8 @@ fun AccessViewUi(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp)
         )
         {
-            DecorationTitle()
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
@@ -165,18 +153,13 @@ fun AccessViewUi(
                     tint = MaterialTheme.colorScheme.primary
                 )
                 Text(
-                    text = "AulaGO",
+                    text = "Transporte App",
                     color = MaterialTheme.colorScheme.surface,
                     fontWeight = FontWeight.Bold,
                     fontSize = 26.sp
                 )
+
                 Spacer(modifier = Modifier.padding(32.dp))
-                Text(
-                    text = "Periodo ${term.name}",
-                    color = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f),
-                    fontSize = 18.sp
-                )
-                Spacer(modifier = Modifier.padding(8.dp))
 
                 OutlinedTextField(
                     value = userInputText.value,
@@ -268,7 +251,6 @@ fun AccessViewUi(
                         enabled = userInputText.value.length > 2 && passwordInputText.value.length > 2 && !isAccessing.value,
                         onClick = {
                             validate()
-                            //mutableStorage.stateLogin.value = StateLogin.TeacherLogin
                         },
                         modifier = Modifier.focusGroup()
                     ) {

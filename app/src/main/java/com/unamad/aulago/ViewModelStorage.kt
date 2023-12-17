@@ -49,7 +49,7 @@ class ViewModelStorage @Inject constructor(
         }
     }
 
-    suspend fun apiVerifyAccess(userName: String, password: String): ResponseData<UserApiModel> {
+    suspend fun verifyAccess(userName: String, password: String): ResponseData<UserApiModel> {
 
         if (userName == "ADMIN" && password == "ADMIN") {
 
@@ -61,12 +61,15 @@ class ViewModelStorage @Inject constructor(
                     maternalSurname = "Admin",
                     sex = 1,
                     role = "ADMIN",
-                    id = "ADMIN"
+                    id = UUID.randomUUID().toString()
                 ),
                 message = "OK",
                 isSuccess = true
             )
         }
+
+
+
 
         if (userName == "USER" && password == "USER") {
 
@@ -78,7 +81,7 @@ class ViewModelStorage @Inject constructor(
                     maternalSurname = "USER",
                     sex = 1,
                     role = "USER",
-                    id = "USER"
+                    id = UUID.randomUUID().toString()
                 ),
                 message = "OK",
                 isSuccess = true

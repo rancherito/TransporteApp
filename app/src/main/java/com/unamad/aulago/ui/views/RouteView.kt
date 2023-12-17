@@ -12,6 +12,7 @@ import com.unamad.aulago.ViewModelStorage
 import com.unamad.aulago.navControllerInstance
 import com.unamad.aulago.ui.views.student.ConductorDashboardView
 import com.unamad.aulago.ui.views.teacher.AdminDashboardView
+import com.unamad.aulago.ui.views.teacher.NewConductor
 import com.unamad.aulago.ui.views.teacher.TeacherGeneralSchedulesView
 import com.unamad.aulago.viewModelInstance
 
@@ -33,7 +34,8 @@ fun RouteView(
     val navController = navControllerInstance()
 
         when (loginStatus.value?.role) {
-            Roles.Student -> {
+            //SI EL ROL ES DE CONDUCTOR
+            Roles.Conductor -> {
 
                 NavHost(
                     navController = navController,
@@ -47,8 +49,8 @@ fun RouteView(
                 }
 
             }
-
-            Roles.Teacher -> {
+            //SI EL ROL ES DE ADMINISTRADOR
+            Roles.Administrator -> {
 
                 NavHost(
                     navController = navController,
@@ -60,10 +62,14 @@ fun RouteView(
                     composable(route = NavigationApp.Administrator.GENERAL_SCHEDULE) {
                         TeacherGeneralSchedulesView()
                     }
+
+                    composable(route = "newConductor") {
+                        NewConductor()
+                    }
                 }
 
             }
-
+            // SI NO HAY ROL MOSTRAMOS LA VISTA DE ACCESO
             else -> {
                 AccessView()
             }

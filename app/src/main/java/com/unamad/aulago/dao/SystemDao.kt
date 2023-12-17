@@ -21,4 +21,8 @@ interface SystemDao {
     fun getStream(key: String): LiveData<String?>
     @Query("DELETE FROM System")
     fun deleteAll()
+
+
+
+
 }

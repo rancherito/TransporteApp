@@ -44,8 +44,8 @@ fun DecorationTitle(
         )
 
         if (arrayOf(
-                Roles.Student,
-                Roles.Teacher
+                Roles.Conductor,
+                Roles.Administrator
             ).contains(session?.role)
         ) {
             Spacer(modifier = Modifier.size(16.dp))

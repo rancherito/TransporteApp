@@ -10,7 +10,6 @@ import com.unamad.aulago.SystemDatabase
 import com.unamad.aulago.classes.Validation
 import com.unamad.aulago.genericReplacement
 import com.unamad.aulago.models.apiModels.UserApiModel
-import com.unamad.aulago.models.apiModels.WhatsappLinkApiModel
 import com.unamad.aulago.models.database.BuildingModel
 import com.unamad.aulago.models.database.CareerModel
 import com.unamad.aulago.models.database.ClassScheduleModel

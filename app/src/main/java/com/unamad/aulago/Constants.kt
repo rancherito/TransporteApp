@@ -30,8 +30,8 @@ object NavigationApp {
 
 class Roles {
     companion object {
-        const val Student = "USER"
-        const val Teacher = "ADMIN"
+        const val Conductor = "USER"
+        const val Administrator = "ADMIN"
     }
 }
 data class ColorSchemeCustom(

@@ -1,6 +1,5 @@
 package com.unamad.aulago.ui.views
 
-import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
@@ -8,7 +7,6 @@ import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.focusGroup
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -29,7 +27,6 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -46,8 +43,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.unamad.aulago.ViewModelStorage
-import com.unamad.aulago.models.database.TermModel
-import com.unamad.aulago.ui.components.DecorationTitle
 import com.unamad.aulago.ui.layouts.BaseLayout
 import com.unamad.aulago.ui.theme.myColors
 import com.unamad.aulago.viewModelInstance
@@ -57,7 +52,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 @Composable
-fun AccessView(viewModelStorage: ViewModelStorage = viewModelInstance()) {
+fun AccessView() {
 
     Box(
         modifier = Modifier.fillMaxSize()
@@ -110,7 +105,7 @@ fun AccessViewUi(
                 isAccessing.value = true
 
                 val response = withContext(Dispatchers.IO) {
-                    viewModelStorage.apiVerifyAccess(
+                    viewModelStorage.verifyAccess(
                         userInputText.value,
                         passwordInputText.value
                     )

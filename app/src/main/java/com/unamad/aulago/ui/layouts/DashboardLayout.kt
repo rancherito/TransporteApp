@@ -1,7 +1,6 @@
 package com.unamad.aulago.ui.layouts
 
 import android.annotation.SuppressLint
-import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -15,7 +14,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -38,10 +36,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.Dialog
 import com.unamad.aulago.R
 import com.unamad.aulago.Roles
-import com.unamad.aulago.Utils.Companion.toJSON
 import com.unamad.aulago.ViewModelStorage
 import com.unamad.aulago.card
 import com.unamad.aulago.models.apiModels.StudentProfileApiModel
@@ -49,7 +45,6 @@ import com.unamad.aulago.ui.components.DecorationTitle
 import com.unamad.aulago.ui.theme.QuickSandFont
 import com.unamad.aulago.ui.theme.myColors
 import com.unamad.aulago.viewModelInstance
-import kotlin.math.round
 
 @SuppressLint("InternalInsetResource", "DiscouragedApi")
 @Composable
@@ -67,7 +62,7 @@ fun DashboardLayout(
 
     var modifierPresentation: Modifier = Modifier
     //si el rol es de estudiante, entonces hacer que modifierPresentation sea clickeable
-    if (systemData?.role == Roles.Student) {
+    if (systemData?.role == Roles.Conductor) {
         modifierPresentation = Modifier
             .clip(RoundedCornerShape(16.dp))
             .clickable {

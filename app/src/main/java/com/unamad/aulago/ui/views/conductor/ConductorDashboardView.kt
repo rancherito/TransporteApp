@@ -1,4 +1,4 @@
-package com.unamad.aulago.ui.views.student
+package com.unamad.aulago.ui.views.conductor
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button

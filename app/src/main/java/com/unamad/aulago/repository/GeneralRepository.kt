@@ -2,40 +2,17 @@ package com.unamad.aulago.repository
 
 import android.content.Context
 import android.util.Log
-import android.widget.Toast
-import androidx.lifecycle.map
-import com.google.gson.Gson
-import com.unamad.aulago.Roles
 import com.unamad.aulago.SystemDatabase
-import com.unamad.aulago.classes.Validation
 import com.unamad.aulago.genericReplacement
 import com.unamad.aulago.models.apiModels.UserApiModel
-import com.unamad.aulago.models.database.BuildingModel
-import com.unamad.aulago.models.database.CareerModel
-import com.unamad.aulago.models.database.ClassScheduleModel
-import com.unamad.aulago.models.database.ClassroomModel
-import com.unamad.aulago.models.database.CourseModel
-import com.unamad.aulago.models.database.PaymentModel
 import com.unamad.aulago.models.database.RoleUserModel
-import com.unamad.aulago.models.database.SectionModel
-import com.unamad.aulago.models.database.StudentSectionModel
-import com.unamad.aulago.models.database.SyllabusScheduleModel
 import com.unamad.aulago.models.database.SystemDataModel
-import com.unamad.aulago.models.database.SystemModel
-import com.unamad.aulago.models.database.TeacherSectionModel
-import com.unamad.aulago.models.database.TermModel
-import com.unamad.aulago.models.database.UnitsScheduleModel
 import com.unamad.aulago.models.database.UserModel
 import com.unamad.aulago.models.query.SessionQueryModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.time.LocalDateTime
-import java.time.LocalTime
-import java.util.TimeZone
-import java.util.UUID
 import javax.inject.Inject
 
 

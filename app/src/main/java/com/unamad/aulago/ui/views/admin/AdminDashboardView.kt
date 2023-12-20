@@ -1,4 +1,4 @@
-package com.unamad.aulago.ui.views.teacher
+package com.unamad.aulago.ui.views.admin
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

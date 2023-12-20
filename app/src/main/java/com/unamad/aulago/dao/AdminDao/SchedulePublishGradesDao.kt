@@ -1,4 +1,4 @@
-package com.unamad.aulago.dao.teacherDao
+package com.unamad.aulago.dao.AdminDao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

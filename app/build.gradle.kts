@@ -36,8 +36,6 @@ android {
 
         }
         debug {
-            applicationIdSuffix = ".profegodev"
-            versionNameSuffix = "-dev"
             buildConfigField("boolean", "IS_PRODUCTION", "false")
         }
     }

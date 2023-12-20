@@ -11,10 +11,12 @@ data class UserModel(
     val name: String,
     val paternalSurname: String,
     val maternalSurname: String,
-    val sex: Int,
+    val genero: String,
     val modifyAt: String,
     @ColumnInfo(defaultValue = "")
     val userName: String = "",
     val phoneNumber: String? = null,
-    val email: String? = null
-): IModel
+    val email: String? = null,
+    val password: String,
+    val fechaNacimiento : String,
+):IModel

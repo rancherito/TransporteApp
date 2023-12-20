@@ -71,7 +71,7 @@ fun DashboardLayout(
     }
 
     val fullName = systemData?.name?.split(" ")?.firstOrNull() ?: ""
-    val welcomeGenre = if (systemData?.sex == 1) "Bienvenido" else "Bienvenida"
+    val welcomeGenre = if (systemData?.genero == 1) "Bienvenido" else "Bienvenida"
     val welcomeText = "$welcomeGenre al panel principal"
     BaseLayout(modifier = modifier) {
 

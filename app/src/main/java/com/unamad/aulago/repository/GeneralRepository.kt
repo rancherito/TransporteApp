@@ -5,7 +5,7 @@ import android.util.Log
 import com.unamad.aulago.SystemDatabase
 import com.unamad.aulago.genericReplacement
 import com.unamad.aulago.models.apiModels.UserApiModel
-import com.unamad.aulago.models.database.RoleUserModel
+import com.unamad.aulago.models.database.UserRoleModel
 import com.unamad.aulago.models.database.SystemDataModel
 import com.unamad.aulago.models.database.UserModel
 import com.unamad.aulago.models.query.SessionQueryModel
@@ -68,14 +68,14 @@ open class GeneralRepository @Inject constructor(
         )
     }
 
-    private fun insertOrUpdateCredentials(roleUserModel: RoleUserModel) {
+    private fun insertOrUpdateCredentials(userRoleModel: UserRoleModel) {
         //Verificamos que no exista duplicidad de usuarios para poder insertar caso contrario actualizamos datos
-        val checkUser = database.generalDao().getUser(roleUserModel.userId)
+        val checkUser = database.generalDao().getUser(userRoleModel.userId)
 
         if (checkUser != null) {
-            val credential = database.generalDao().getCredentialUser(roleUserModel.userId)
-            if (credential != null) roleUserModel.id = credential.id
-            database.generalDao().insertCredentials(roleUserModel)
+            val credential = database.generalDao().getCredentialUser(userRoleModel.userId)
+            if (credential != null) userRoleModel.id = credential.id
+            database.generalDao().insertCredentials(userRoleModel)
         }
     }
 
@@ -90,16 +90,17 @@ open class GeneralRepository @Inject constructor(
             name = userApiModel.name,
             paternalSurname = userApiModel.paternalSurname,
             maternalSurname = userApiModel.maternalSurname,
-            sex = userApiModel.sex,
+            genero = userApiModel.sex,
             email = userApiModel.email,
             phoneNumber = userApiModel.phoneNumber?.replace(" ", ""),
-            modifyAt = LocalDateTime.now().toString()
-
+            modifyAt = LocalDateTime.now().toString(),
+            password = "userApiModel.password",
+            fechaNacimiento = ""
         )
         replaceUser(listOf(user))
 
         insertOrUpdateCredentials(
-            RoleUserModel(
+            UserRoleModel(
                 userId = userApiModel.id,
                 role = userApiModel.role
             )

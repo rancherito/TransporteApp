@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 import java.util.UUID
 
 @Entity(
-    tableName = "Credentials",
+    tableName = "UserRole",
     foreignKeys = [
         ForeignKey(
             entity = UserModel::class,
@@ -17,7 +17,7 @@ import java.util.UUID
         )
     ]
 )
-data class RoleUserModel(
+data class UserRoleModel(
     @PrimaryKey
     var id: String = UUID.randomUUID().toString(),
     @ColumnInfo(index = true)

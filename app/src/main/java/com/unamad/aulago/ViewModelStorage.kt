@@ -59,7 +59,7 @@ class ViewModelStorage @Inject constructor(
                     name = "ADMIN",
                     paternalSurname = "ADMIN",
                     maternalSurname = "Admin",
-                    sex = 1,
+                    sex = "M",
                     role = "ADMIN",
                     id = UUID.randomUUID().toString()
                 ),
@@ -71,7 +71,7 @@ class ViewModelStorage @Inject constructor(
 
 
 
-        if (userName == "USER" && password == "USER") {
+        if (userName == "CONDUCTOR" && password == "CONDUCTOR") {
 
             return ResponseData(
                 data = UserApiModel(
@@ -79,8 +79,8 @@ class ViewModelStorage @Inject constructor(
                     name = "USER",
                     paternalSurname = "USER",
                     maternalSurname = "USER",
-                    sex = 1,
-                    role = "USER",
+                    sex = "M",
+                    role = "CONDUCTOR",
                     id = UUID.randomUUID().toString()
                 ),
                 message = "OK",

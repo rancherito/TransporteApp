@@ -6,7 +6,7 @@ import com.unamad.aulago.dao.GeneralDao
 import com.unamad.aulago.dao.SystemDao
 import com.unamad.aulago.dao.ConductorDao.ConductorDao
 import com.unamad.aulago.dao.AdminDao.AdminDao
-import com.unamad.aulago.models.database.RoleUserModel
+import com.unamad.aulago.models.database.UserRoleModel
 import com.unamad.aulago.models.database.SystemDataModel
 import com.unamad.aulago.models.database.SystemModel
 import com.unamad.aulago.models.database.TaxiModel
@@ -16,7 +16,7 @@ import com.unamad.aulago.models.database.UserModel
     entities = [
         UserModel::class,
         SystemDataModel::class,
-        RoleUserModel::class,
+        UserRoleModel::class,
         SystemModel::class,
         TaxiModel::class
     ],
@@ -26,8 +26,8 @@ import com.unamad.aulago.models.database.UserModel
 )
 abstract class SystemDatabase : RoomDatabase() {
     abstract fun generalDao(): GeneralDao
-    abstract fun studentDao(): ConductorDao
-    abstract fun teacherDao(): AdminDao
+    abstract fun conductorDao(): ConductorDao
+    abstract fun adminDao(): AdminDao
     abstract  fun systemDao(): SystemDao
 
 }

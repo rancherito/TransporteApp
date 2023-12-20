@@ -33,7 +33,7 @@ object InjectionModule {
             return Room.databaseBuilder(
                 appContext.applicationContext,
                 SystemDatabase::class.java,
-                "${SystemDatabase::class.simpleName!!}_beta_05".lowercase()
+                "${SystemDatabase::class.simpleName!!}_08".lowercase()
             ).build()
         }
     }

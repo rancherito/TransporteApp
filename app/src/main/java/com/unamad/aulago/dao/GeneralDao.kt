@@ -25,13 +25,13 @@ interface GeneralDao {
         SELECT 
             (u.paternalSurname || ' ' || u.maternalSurname || ', ' || U.name ) fullName, 
             U.name,
-            U.sex,
+            U.genero,
             s.token,
             (s.tokenVerify IS NOT NULL) tokenVerify, 
             c.role, c.userId
         FROM SystemData s 
         INNER JOIN Users u ON u.id = s.currentUserId 
-        INNER JOIN credentials c ON c.userId = u.id
+        INNER JOIN userrole c ON c.userId = u.id
         LIMIT 1"""
     )
     fun userSystemDataStream(): LiveData<CurrentSessionQueryModel?>
@@ -41,7 +41,7 @@ interface GeneralDao {
         SELECT (U.paternalSurname || ' ' || U.maternalSurname || ', ' || U.name) fullName, s.token, c.role, c.userId
         FROM SystemData s 
         INNER JOIN Users u ON u.id = s.currentUserId
-        INNER JOIN credentials c ON c.userId = u.id
+        INNER JOIN userrole c ON c.userId = u.id
         LIMIT 1"""
     )
     suspend fun getUserSystemData(): SessionQueryModel?
@@ -60,11 +60,11 @@ interface GeneralDao {
     //ENDREGION
 
     //REGION CREDENTIALS
-    @Query("SELECT * FROM  credentials WHERE userId = :userId")
-    fun getCredentialUser(userId: String): RoleUserModel?
+    @Query("SELECT * FROM  userrole WHERE userId = :userId")
+    fun getCredentialUser(userId: String): UserRoleModel?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertCredentials(credential: RoleUserModel)
+    fun insertCredentials(credential: UserRoleModel)
 
     //ENDREGION
 

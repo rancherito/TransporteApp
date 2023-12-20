@@ -45,7 +45,7 @@ fun DecorationTitle(
 
         if (arrayOf(
                 Roles.Conductor,
-                Roles.Administrator
+                Roles.Administrador
             ).contains(session?.role)
         ) {
             Spacer(modifier = Modifier.size(16.dp))

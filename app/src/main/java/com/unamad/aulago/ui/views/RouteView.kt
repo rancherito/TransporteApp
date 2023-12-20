@@ -22,6 +22,9 @@ import com.unamad.aulago.viewModelInstance
 fun RouteView(
     viewModelStorage: ViewModelStorage = viewModelInstance()
 ) {
+    
+
+
     viewModelStorage.loadInitialData(context = LocalContext.current)
 
     val loginStatus = viewModelStorage.generalRepository.userSystemDataStream.observeAsState()
@@ -46,7 +49,7 @@ fun RouteView(
                 }
             }
             //SI EL ROL ES DE ADMINISTRADOR
-            Roles.Administrator -> {
+            Roles.Administrador -> {
                 NavHost(
                     navController = navController,
                     startDestination = NavigationApp.Administrator.DASHBOARD

@@ -7,7 +7,7 @@ data class UserApiModel(
     @SerializedName("name") var name: String,
     @SerializedName("paternalSurname") var paternalSurname: String,
     @SerializedName("maternalSurname") var maternalSurname: String,
-    @SerializedName("sex") var sex: Int,
+    @SerializedName("sex") var sex: String,
     @SerializedName("email") var email: String? = null,
     @SerializedName("phoneNumber") var phoneNumber: String? = null,
     @SerializedName("role") var role: String,
